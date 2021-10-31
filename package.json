@@ -1,0 +1,54 @@
+{
+  "name": "tinyinject",
+  "version": "1.0.0",
+  "description": "Inject without needing a constructor",
+  "main": "bin/index.js",
+  "types": "bin/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node ./node_modules/jest/bin/jest.js"
+  },
+  "files": [
+    "/bin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaenster/tinyinject.git"
+  },
+  "keywords": [
+    "inject",
+    "decorator",
+    "service",
+    "tiny-injection",
+    "constructor-less-injection",
+    "typescript",
+    "decorators",
+    "injection",
+    "tiny",
+    "metadata"
+  ],
+  "author": "Jaenster",
+  "license": "MIT",
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.6",
+    "jest": "^27.0.2",
+    "ts-jest": "^27.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^4.4.4"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  }
+}
