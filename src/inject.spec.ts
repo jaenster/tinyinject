@@ -104,7 +104,7 @@ describe('inject spec', function () {
         expect(flow[4]).toBe('called fooString');
     });
 
-    it('abstraction test', function () {
+    test('abstraction test', function () {
 
         const flow = [];
 
@@ -178,5 +178,32 @@ describe('inject spec', function () {
         expect(flow[5]).toBe('called fooString');
         expect(flow[6]).toBe('called barMethod');
         expect(flow[7]).toBe('called fooString');
+    })
+
+    test('model like structure', function() {
+        type Ctor<T=any> = (new(...[])=>T);
+
+        abstract class Model<T> {
+            abstract service: Service<T>;
+        }
+
+        abstract class Service<T> {
+            protected abstract model: Ctor<T>
+            getNew(): T {
+                return new this.model();
+            }
+        }
+
+        class FooService extends Service<Foo> {
+            protected model = Foo;
+        }
+
+        class Foo extends Model<Foo> {
+            @Ti() service: FooService;
+        }
+
+        const {service} = new Foo;
+
+        expect(service.getNew().service).toBe(service);
     })
 });
